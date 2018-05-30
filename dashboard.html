@@ -155,8 +155,8 @@
             window.alert(input_box);
 
             $.getJSON('/_add_numbers', {
-                a: $('input[name="a"]').val(),
-                b: $('input[name="b"]').val()
+                a: 4,
+                b: 3
               }, function(data) {
                 $("#result").text(data.result);
                 window.alert(data.result)
