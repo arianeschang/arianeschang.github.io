@@ -5,6 +5,7 @@ app = Flask(__name__)
 def add_numbers():
     a = request.args.get('a', 0, type=int)
     b = request.args.get('b', 0, type=int)
+    print a
     return jsonify(result=a + b)
 
 @app.route('/')
