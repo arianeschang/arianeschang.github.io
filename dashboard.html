@@ -26,8 +26,8 @@
 
 
     <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
@@ -94,9 +94,9 @@
                             </div>
                             <br>
                             <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Search for...">
+                              <input type="text" class="form-control" placeholder="Search for..." id = "one">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" id="run_py">Go!</button>
+                                <button class="btn btn-default" type="button" id="run_py" value = "one">Go!</button>
                               </span>
                             </div><!-- /input-group -->
                     </div>
@@ -154,7 +154,11 @@
 
 	<script type="text/javascript">
     	$("#run_py").click(function(){
-            window.alert("click");
+            var input_box = $(this).val();
+            var input_text = $(input_box).val();
+            window.alert(input_text);
+            window.alert(input_box);
+
              $.ajax({
                   type:'get',
                   url:'/py/twitter_realtime.py',
