@@ -34,14 +34,8 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
 
-    <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
 
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -152,26 +146,25 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
+
 	<script type="text/javascript">
     	$("#run_py").click(function(){
             var input_box = $(this).val();
-            var input_text = $(input_box).val();
+            var input_text = $("#" + input_box).val();
             window.alert(input_text);
             window.alert(input_box);
 
-             $.ajax({
-                  type:'get',
-                  url:'/py/twitter_realtime.py',
-                  cache:false,
-                  async:'asynchronous',
-                  dataType:'json',
-                  success: function(data) {
-                    console.log(JSON.stringify(data))
-                  },
-                  error: function(request, status, error) {
-                    console.log("Error: " + error)
-                  }
-               });
+            $.getJSON('/_add_numbers', {
+                a: $('input[name="a"]').val(),
+                b: $('input[name="b"]').val()
+              }, function(data) {
+                $("#result").text(data.result);
+                window.alert(data.result)
+              });
+              return false;
+
+            
+               
             });
 	</script>
 
